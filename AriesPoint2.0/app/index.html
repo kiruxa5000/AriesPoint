@@ -1,0 +1,1106 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Астрономия</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300" rel="stylesheet">    <!-- Styles -->
+    <style>
+        html, body {
+            background-color: #fff;
+            color: #fff;
+            /*font-family: 'Raleway', sans-serif;*/
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 400;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .full-height {
+            height: 100vh;
+        }
+
+        .flex-center {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .position-ref {
+            position: relative;
+        }
+
+        .top-right {
+            position: absolute;
+            right: 10px;
+            top: 18px;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        .title {
+            font-size: 84px;
+        }
+
+        .links > a {
+            color: #636b6f;
+            padding: 0 25px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .m-b-md {
+            margin-bottom: 30px;
+            z-index: 2;
+        }
+        .background{
+            position: fixed;
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .header{
+            position: fixed;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 50px;
+            background: #323232;
+            font-weight: 200;
+            color: #f8f8f8;
+            box-shadow: 0px 0px 10px -1px black;
+        }
+        .header a{
+            position: relative;
+            top:4px;
+            left:20px;
+            font-size: 30px;
+            font-weight: 200;
+            text-decoration: none;
+            color: #f8f8f8;
+
+        }
+        .menu{
+            position: fixed;
+            top:70px;
+            left:20px;
+            width: 200px;
+            height: 500px;
+        }
+        .m_item{
+            position: relative;
+            margin-top: 10px;
+            width: 90%;
+            left:5%;
+            height: auto;
+            padding: 10px;
+            padding-top: 4px;
+            font-size: 20px;
+            background: #323232;
+            font-weight: 100;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0px 0px 5px -1px black;
+
+        }
+        .content{
+            position: absolute;
+            top: 200px;
+            left: 0;
+            height: inherit;
+            width: 100%;
+            text-align: center;
+            color: #323232;
+        }
+        .answer{
+            position: absolute;
+            top:200px;
+            left: 70%;
+            width: 30%;
+            text-align: center;
+        }
+        .help{
+            position: absolute;
+            top:200px;
+            left: 0;
+            width: 70%;
+            text-align: center;
+        }
+        .content table{
+            color: #000000;
+            font-size: 24px;
+            display: inline-block;
+        }
+        .content table td:nth-child(2){
+            padding-right: 30px;
+        }
+        .but{
+            height: 46px;
+            width: 200px;
+            display: inline-block;
+            margin-bottom: 5px;
+            cursor: pointer;
+            border: none;
+            background: #323232;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 100;
+            border-radius: 5px;
+            font-family: inherit;
+            box-shadow: 0 0 5px -1px black;;
+        }
+        .buttons {
+            position: absolute;
+            top: 0;
+            right: 211px;
+        }
+        .buttons1{
+            position: absolute;
+            top: 0;
+            left: 211px;
+        }
+        .dashboard{
+            position: fixed;
+            top:10%;
+            left:20%;
+            width: 60%;
+            height: 80%;
+            text-align: center;
+            background: white;
+            border: 3px solid #323232;
+            box-shadow: 0px 0px 10px -1px black;
+            display: none;
+        }
+        .dashTable{
+            position: relative;
+            margin-top: 28px;
+            border: 1px solid #323232;
+            color: #323232;
+            display: inline-block;
+            border-spacing: inherit;
+            font-size: 26px;
+        }
+        .dashTable th{
+            border: 1px solid #323232;
+            font-size: 30px;
+        }
+        .dashTable td{
+            border: 1px solid #323232;
+        }
+
+
+        .mainBlock{
+            position: relative;
+            top: -50px;
+            width: 300px;
+            height: 300px;
+            border: 1px solid #aaaaaa;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px -1px #323232;
+            display: inline-block;
+            transition: box-shadow 0.5s;
+        }
+        .mainTitle{
+            position: relative;
+            top:-40px;
+        }
+        .spisok{
+            padding-top: 30px;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            left: 0;
+            text-align: center;
+            height: 270px;
+            background: rgba(255,255,255,0.9);
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .spisok a{
+            position: relative;
+            cursor: pointer;
+            font-size: 24px;
+            text-decoration: none;
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            display: block;
+            font-weight: bold;
+            color: #323232;
+        }
+    </style></head>
+<body>
+
+
+<div class="content">
+    <style>
+        html, body {
+            background-color: #fff;
+            color: #fff;
+            /*font-family: 'Raleway', sans-serif;*/
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 400;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .full-height {
+            height: 100vh;
+        }
+
+        .flex-center {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .position-ref {
+            position: relative;
+        }
+
+        .top-right {
+            position: absolute;
+            right: 10px;
+            top: 18px;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        .title {
+            font-size: 84px;
+        }
+
+        .links > a {
+            color: #636b6f;
+            padding: 0 25px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .m-b-md {
+            margin-bottom: 30px;
+            z-index: 2;
+        }
+        .background{
+            position: fixed;
+            top: 0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .header{
+            position: fixed;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 50px;
+            background: #323232;
+            font-weight: 200;
+            color: #f8f8f8;
+            box-shadow: 0px 0px 10px -1px black;
+        }
+        .header span{
+            position: relative;
+            top:4px;
+            left:20px;
+            font-size: 30px;
+            font-weight: 200;
+        }
+        .menu{
+            position: fixed;
+            top:70px;
+            left:20px;
+            width: 200px;
+            height: 500px;
+        }
+        .m_item{
+            position: relative;
+            margin-top: 10px;
+            width: 90%;
+            left:5%;
+            height: auto;
+            padding: 10px;
+            padding-top: 4px;
+            font-size: 20px;
+            background: #323232;
+            font-weight: 100;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0px 0px 5px -1px black;
+
+        }
+        .content{
+            position: relative;
+            text-align: -webkit-center;
+            top: 100px;
+            left: 00px;
+        }
+        .tableOver {
+            border: none;
+            margin-bottom: 10px;
+            color: #000000;
+            font-size: 20px;
+            text-align: center;
+            width: 98%;
+            overflow: auto;
+            /*display: -webkit-box;*/
+            border-spacing: inherit;
+
+        }
+        .tableIn td{
+            height: 28px;
+        }
+        .tableIn td:nth-child(1){
+            text-align: center;
+        }
+        .tableOver th{
+            font-size: 20px;
+            height: 25px;
+            padding: 3px;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-weight: 100;
+            background: #323232;
+            color: #f8f8f8;
+        }
+        .tableIn {
+            margin-bottom: 10px;
+            color: #000000;
+            font-size: 20px;
+            text-align: left;
+            width: 280px;
+            overflow: auto;
+            display: inline;
+            border-spacing: inherit;
+            border: 2px solid #323232;
+        }
+        .tableIn p{
+            font-size: 18px;
+            margin: 0;
+        }
+        .tableIn tr:last-child td{
+            padding-top: 4px;
+        }
+        .sign{
+            position: relative;
+            top: 14px;
+        }
+        .line td{
+            border-bottom: 1px solid #323232;
+        }
+        input{
+            height: 23px;
+            font-size: 20px;
+            font-family: inherit;
+        }
+        .ok{
+            height: 30px;
+            margin-top: -3px;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 14px;
+            box-shadow: 0px 0px 7px -1px grey;
+        }
+        .okBut{
+            position: relative;
+            top: 7px;
+            height: 28px;
+            margin-left: 5px;
+            border: none;
+            background: none;
+        }
+        .inp{
+            position: relative;
+            top: 0px;
+            padding-left: 5px;
+        }
+
+        .inpD{
+            width: 45px;
+            margin-right: 3px;
+
+        }
+        .inpXD{
+            width: 65px;
+        }
+        .inpM{
+            width: 35px;
+        }
+        .inpN{
+            height: 28px;
+            width: 39px;
+            position: relative;
+            top: 2px;
+            border: none;
+            font-family: inherit;
+            background: none;
+            font-size: 22px;
+        }
+        .iTrue{
+            border: 1px solid #99cb84;
+            box-shadow: 0px 0px 10px -1px #99cb84;
+        }
+        .iFalse{
+            border: 1px solid #ce8483;
+            box-shadow: 0px 0px 10px -1px #ce8483;
+        }
+        .miniSign{
+            position: relative;
+            top: -3px;
+            left: -8px;
+            font-size: 22px;
+        }
+        .inpDate{
+            width: 153px;
+        }
+        .inpButton{
+            height: inherit;
+        }
+        .inpText{
+            width: 150px;
+        }
+        .mainTable{
+            border: 2px solid #323232;
+            border-spacing: inherit;
+        }
+        .mainTable td{
+            border-bottom: 1px solid #323232 ;
+
+        }
+        .mainTable td:nth-child(2){
+            border-right: 1px dashed #323232 ;
+        }
+
+        .mainTable td:nth-child(3){
+            border-right: 1px dashed #323232 ;
+        }
+
+        .mainTable td:nth-child(5){
+            border-right: 1px dashed #323232 ;
+        }
+
+        .mainTable td:nth-child(7){
+            border-right: 1px dashed #323232 ;
+        }
+
+        .errorMassage{
+            font-size: 24px;
+            background: red;
+            font-weight: 700;
+            color: white;
+        }
+        .datetimer{
+            font-weight: 700;
+        }
+
+        .descr{
+            font-weight: 700;
+            font-size: 16px;
+            margin-left: 5px;
+        }
+    </style>
+
+
+
+
+    <form name='main' action='view.php' target="view">
+        <input name='t' value='GAK' style='display: none'>
+        <input name='type' value='["A","A"]' style='display: none'>
+        <table class="mainTable"><tr><td>Т<sub>с</sub></td>
+            <td><input type='date' class='inpDate' name='date' value='2003-05-16'>
+            </td>
+            <td><input name='Star_1' value='Спика' class='inpText'><input type='number' name='star1Num' value='92' step='1' class='inpM' ></td>
+            <td>ΔТ</td><td><input type='time' name='dT_1' value='12:12'></td>
+            <td>ОС<sub>1</sub></td>
+            <td><input type='number' name='OS1D' value='29' class='inpD'>
+        <input type='number' name='OS1M' value='25.1' class='inpD' step='any'></td>
+            <td>ПУ, V</td><td><input type='number' name='PU' value='125' class='inpXD' step='any'>&deg;<input type='number' name='V' value='10.5' class='inpXD' step='any'><sub>уз</sub></td></tr>
+
+            <tr><td>Тс, N</td><td><input type='time' name='time' value='18:55:00' step='1'><input type='number' name='ND' value='8' class='inpD'>
+        <select name='NN' class='inpN' >
+            <option selected>E</option>
+            <option >W</option>
+        </select></td>
+                <td><input name='Star_2' value='Юпитер' class='inpText'><input type='number' name='star2Num' value='-3' step='1' class='inpM' ></td>
+                <td>ΔТ</td><td><input type='time' name='dT_2' value='14:00'></td><td>ОС<sub>2</sub></td>
+                <td><input type='number' name='OS2D' value='44' class='inpD'>
+        <input type='number' name='OS2M' value='9.7' class='inpD' step='any'></td><td>e</td>
+                <td>
+                    <input type='number' name='e' value='19' class='inpXD' step='any'>м X,X'
+
+                </td></tr>
+
+
+            <tr><td>&phi;</td><td><input type='number' name='latD' value='27' class='inpD'>
+        <input type='number' name='latM' value='9' class='inpD' step='any'>
+        <select class='inpN' name='latN' >
+            <option >N</option>
+            <option selected>S</option>
+        </select><select name='type3'><option selected>A</option><option ></option></select></td>
+                <td><input name='Star_3' value='Авиор' class='inpText'><input type='number' name='star3Num' value='0' step='1' class='inpM' ></td>
+                <td>A<sub>o</sub></td><td><input type='number' name='Ao_3' value='193.4' class='inpXD' step='any'></td>
+                <td>n</td><td><input type='number' name='n_3D' value='0' class='inpD' style='display: none;'>
+        <input type='number' name='n_3M' value='6.4' class='inpD' step='any'></td>
+                <td>B, t</td><td><input type='number' name='B' value='753' class='inpXD' step='any'><input type='number' name='temp' value='19' class='inpXD' step='any'></td></tr>
+
+
+            <tr><td>λ</td>
+                <td><input type='number' name='lngD' value='103' class='inpD'>
+        <input type='number' name='lngM' value='43' class='inpD' step='any'>
+        <select name='lngN' class='inpN' >
+            <option selected>E</option>
+            <option >W</option>
+        </select><select name='type4'><option selected>A</option><option ></option></select></td>
+                <td><input name='Star_4' value='Ригель' class='inpText'><input type='number' name='star4Num' value='0' step='1' class='inpM' ></td>
+                <td>A<sub>o</sub></td>
+                <td><input type='number' name='Ao_4' value='275.4' class='inpXD' step='any'></td>
+                <td>n</td>
+                <td><input type='number' name='n_4D' value='0' class='inpD' style='display: none;'>
+        <input type='number' name='n_4M' value='2' class='inpD' step='any'></td>
+                <td>O<sub>iср</sub></td>
+                <td><input type='number' name='OisrD' value='359' class='inpD'>
+                    <input type='number' name='OisrM' value='57.6' class='inpD' step='any'></td></tr>
+
+
+            <tr><td></td><td></td><td>T<sub>ст</sub>
+                <input type='time' name='Tstart' value='10:40:00' step='1'></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td></tr>
+
+
+            <tr><td></td><td>Данные из МАЕ <span class="datetimer"></span></td><td></td></tr><tr><td>S<sub>табл</sub><span class="StH descr"></span></td><td><input type='number' name='StD' value='23' class='inpD'>
+        <input type='number' name='StM' value='42.4' class='inpD' step='any'></td><td></td></tr><tr><td>τ<span class='descr starNum'></span></td><td><input type='number' name='tau_1D' value='158' class='inpD'>
+        <input type='number' name='tau_1M' value='39.4' class='inpD' step='any'></td><td>b<sub>пр</sub> <input type='number' name='b_1D' value='11' class='inpD'>
+        <input type='number' name='b_1M' value='10.8' class='inpD' step='any'>
+        <select class='inpN' name='b_1N' >
+            <option >N</option>
+            <option selected>S</option>
+        </select></td><td><td></td></td><td><td></td></td><td><td></td></td></tr><tr><td>t<sub>т</sub><span class="ttH descr"></span></td><td><input type='number' name='tt_2D' value='250' class='inpD'>
+        <input type='number' name='tt_2M' value='19.4' class='inpD' step='any'></td><td>b<sub>пр</sub> <input type='number' name='b_2D' value='18' class='inpD'>
+        <input type='number' name='b_2M' value='20.9' class='inpD' step='any'>
+        <select class='inpN' name='b_2N' >
+            <option selected>N</option>
+            <option >S</option>
+        </select></td><td>Δt<input type='number' name='dttD' value='0' class='inpD' style='display: none;'>
+        <input type='number' name='dttM' value='2' class='inpD' step='any'></td><td>Δb<input type='number' name='dbtD' value='0' class='inpD' style='display: none;'>
+        <input type='number' name='dbtM' value='-0.3' class='inpD' step='any'></td><td>P<sub>0</sub><input type='number' name='P0D' value='0' class='inpD' style='display: none;'>
+        <input type='number' name='P0M' value='0.2' class='inpD' step='any'></td></tr><tr><td>Tк<sub>м</sub></td><td><input type='time' name='Tkm' value='11:56'></td></tr><tr><td>T<sub>в/з1</sub><span class='tvz1 descr'></span></td><td><input type='time' name='Tvzt1' value='17:31'></td><td>T<sub>в/з2</sub><span class='tvz2 descr'></span><input type='time' name='Tvzt2' value='17:14'></td></tr><tr><td>ГКК</td><td><input type='number' name='GKK' value='88.9' class='inpXD' step='any'>ВЛП<input type='number' name='VLP' value='1' class='inpXD' step='any'></td></tr><tr><td></td></tr><tr><td></td><td><input type='submit' value='Рассчитать' class='inpButton' ></td></tr></table></form>
+
+    <iframe src="view.php" name="view" style="
+    position: relative;
+    width: 86%;
+    border: 7px solid #666961;
+    height: 100px;"></iframe>
+    <script>
+        var Stars= [
+            'Альферас',
+            'Кафф',
+            'Шедар',
+            'Дифда',
+            'Ахернар',
+            'Альмак',
+            'Хамаль',
+            'Менкар',
+            'Мирфак',
+            'Альдебаран',
+            'Ригель',
+            'Капелла',
+            'Нат',
+            'Минтака',
+            'Альнилам',
+            'Бетельгейзе',
+            'Канопус',
+            'Сириус',
+            'Адхара',
+            'Кастор',
+            'Процион',
+            'Поллукс',
+            'p Арго',
+            'y Арго',
+            'Авиор',
+            'Сухаиль',
+            'Миаплацидус',
+            'Альфард',
+            'Регул',
+            'Дубхе',
+            'Денебола',
+            'Акрукс',
+            'Мухлифайн',
+            'Мимоза',
+            'Алиот',
+            'Мицар',
+            'Спика',
+            'Бенетнаш',
+            'Арктур',
+            'Ригил-Кент',
+            'Кохаб',
+            'Альфакка',
+            'Антарес',
+            'Атрия',
+            'Жаула',
+            'Расальхагуэ',
+            'x Скорпиона',
+            'Эльтанин',
+            'Вега',
+            'Нунки',
+            'Альтаир',
+            'Пикок',
+            'Денеб',
+            'Эниф',
+            'Ал Наир',
+            'b Журавля',
+            'Фомальхаут',
+            'Полярная'
+        ];
+        var Planets=['',
+            'Венера',
+            'Марс',
+            'Юпитер',
+            'Сатурн'
+        ];
+        var StarsNumber=[
+            1,
+            2,
+            6,
+            7,
+            11,
+            15,
+            16,
+            18,
+            20,
+            24,
+            27,
+            28,
+            30,
+            32,
+            35,
+            40,
+            44,
+            46,
+            48,
+            54,
+            55,
+            56,
+            57,
+            58,
+            60,
+            62,
+            63,
+            65,
+            67,
+            72,
+            74,
+            80,
+            84,
+            86,
+            87,
+            91,
+            92,
+            94,
+            99,
+            102,
+            106,
+            111,
+            117,
+            122,
+            129,
+            130,
+            132,
+            134,
+            139,
+            140,
+            146,
+            148,
+            149,
+            152,
+            154,
+            156,
+            157,
+            160
+        ];
+        //var num;
+        for(var t=1;t<3;t++) {
+            var num = document.getElementsByName('star' + t + 'Num')[0];
+            document.getElementsByName('Star_' + t)[0].onblur = function (num) {
+                var res = 0;
+                if (Stars.indexOf(this.value) > -1) {
+                    res = StarsNumber[Stars.indexOf(this.value)];
+                } else if (Planets.indexOf(this.value) > -1) {
+                    res = Planets.indexOf(this.value) * (-1);
+                }
+                this.parentNode.childNodes[1].value=res;
+                var type = this.parentNode.childNodes[1].value;
+
+                var x = 8;
+                var y =2;
+                if (this.name==='Star_1'){
+                    x=7;
+                    y = 1;
+                }
+                var td =this.parentNode.parentNode.parentNode.childNodes[x].childNodes;
+                  var td =this.parentNode.parentNode.parentNode.getElementsByTagName('tr')[x].childNodes;
+//                td.style.background='red';
+
+                if (type <0){
+                    td[0].innerHTML='t<sub>т</sub><span class="ttH descr"></span>';
+                    td[1].innerHTML='<input type="number" name="tt_'+y+'D" value="20" class="inpD"><input type="number" name="tt_'+y+'M" value="10" class="inpD" step="any">';
+                    td[2].innerHTML='b<sub>пр</sub><input type="number" name="b_'+y+'D" value="0" class="inpD"><input type="number" name="b_'+y+'M" value="0" class="inpD" step="any"><select class="inpN" name="b_'+y+'N">\n' +
+                        '                               <option selected="">N</option>\n' +
+                        '                               <option>S</option>\n' +
+                        '                           </select>';
+                    td[3].innerHTML='Δt<input type="number" name="dttD" value="0" class="inpD" style="display: none;"><input type="number" name="dttM" value="15" class="inpD" step="any">';
+                    td[4].innerHTML='Δb<input type="number" name="dbtD" value="0" class="inpD" style="display: none;"><input type="number" name="dbtM" value="15" class="inpD" step="any">';
+                    td[5].innerHTML='P<sub>0</sub><input type="number" name="P0D" value="0" class="inpD" style="display: none;"><input type="number" name="P0M" value="15" class="inpD" step="any">';
+                }else {
+                    td[0].innerHTML='τ<span class="descr">'+type+'</span>';
+                    td[1].innerHTML='<input type="number" name="tau_'+y+'D" value="20" class="inpD"><input type="number" name="tau_'+y+'M" value="10" class="inpD" step="any">';
+                    td[2].innerHTML='b<sub>пр</sub><input type="number" name="b_'+y+'D" value="0" class="inpD"><input type="number" name="b_'+y+'M" value="0" class="inpD" step="any"><select class="inpN" name="b_'+y+'N">\n' +
+                        '                               <option selected="">N</option>\n' +
+                        '                               <option>S</option>\n' +
+                        '                           </select>';
+                    td[3].innerHTML='';
+                    td[4].innerHTML='';
+                    td[5].innerHTML='';
+                }
+            };
+        }
+
+
+        function calcH (){
+
+
+
+            var TStart0 = document.getElementsByName('Tstart')[0].value.split(':');
+            if (TStart0.length===2){
+                TStart0.push(0);
+            }
+            var TStart = TStart0[0]*1+TStart0[1]/60+TStart0[2]/3600;
+            var stars = [];
+            var planets = [];
+            if (document.getElementsByName('star1Num')[0].value>=0){
+                var dT_0 = document.getElementsByName('dT_1')[0].value.split(':');
+                if (dT_0.length===2){
+                    dT_0.push(0);
+                }
+                var dT_1 = dT_0[0]/60+dT_0[1]/3600;
+
+
+                stars.push(TStart+dT_1);
+            }else{
+                var dT_0 = document.getElementsByName('dT_1')[0].value.split(':');
+                if (dT_0.length===2){
+                    dT_0.push(0);
+                }
+                var dT_1 = dT_0[0]/60+dT_0[1]/3600;
+
+
+                planets.push(TStart+dT_1);
+            }
+            if (document.getElementsByName('star2Num')[0].value>=0){
+                var dT_0 = document.getElementsByName('dT_2')[0].value.split(':');
+                if (dT_0.length===2){
+                    dT_0.push(0);
+                }
+                var dT_2 = dT_0[0]/60+dT_0[1]/3600;
+                stars.push(TStart+dT_2);
+            }else{
+                var dT_0 = document.getElementsByName('dT_2')[0].value.split(':');
+                if (dT_0.length===2){
+                    dT_0.push(0);
+                }
+                var dT_2 = dT_0[0]/60+dT_0[1]/3600;
+                planets.push(TStart+dT_2);
+            }
+//            stars=[1,2];
+
+            var minStar = stars[0];
+            for (i = 0; i < 2; i++) {
+                if (stars[i] < minStar) minStar = stars[i];
+            }
+
+            minP = planets[0];
+            for (i = 0; i < 2; i++) {
+                if (planets[i] < minP) minP = planets[i];
+            }
+
+            var dat = document.getElementsByName('date')[0].value.split('-');
+            var tim = document.getElementsByName('time')[0].value.split(':');
+
+            var ND = document.getElementsByName('ND')[0].value;
+            var NN = document.getElementsByName('NN')[0].value;
+            if (NN ==='E') {
+                ND = -ND
+            }
+
+            var date = new Date(dat[0], dat[1], dat[2], tim[0], tim[1], 0);
+            date = new Date(date.getTime()+ND*3600000);
+
+            var day = date.getDate();
+
+
+            dateH = date.getHours();
+
+            if (Math.abs(minStar-dateH)>6) {
+                if ((minStar - dateH) < 0) {
+                    day++;
+                }else{
+                    day--;
+                }
+            }
+            minStar=Math.floor(minStar);
+            if(minStar<10){
+                minStar = "0"+minStar;
+            }
+            var month = ['Янв','Фев','Марта','Апр','Мая','Июня','Июля','Авг', 'Сен','Окт','Нояб','Дек'];
+            minP=Math.floor(minP);
+            if(minP<10){
+                minP = "0"+minP;
+            }
+            document.getElementsByClassName('datetimer')[0].innerHTML=day+'.'+month[date.getMonth()-1];
+            document.getElementsByClassName('StH')[0].innerHTML=minStar+':00';
+            if (planets.length>0){
+                document.getElementsByClassName('ttH')[0].innerHTML=minP+':00';
+            }
+        }
+
+
+        document.getElementsByName('Tstart')[0].onblur= function () {
+            calcH();
+        };
+
+        document.getElementsByName('dT_1')[0].onblur= function () {
+            calcH();
+        };
+
+        document.getElementsByName('dT_2')[0].onblur= function () {
+            calcH();
+        };
+
+        document.getElementsByName('ND')[0].onblur= function () {
+            calcH();
+        };
+
+        document.getElementsByName('NN')[0].onblur= function () {
+            calcH();
+        };
+
+        document.getElementsByName('date')[0].onblur= function () {
+            calcH();
+        };
+        document.getElementsByName('time')[0].onblur= function () {
+            calcH();
+        };
+
+
+        document.getElementsByName('type3')[0].oninput = function (){
+
+            var TR = this.parentNode.parentNode.getElementsByTagName('td');
+
+            if (this.value === 'A'){
+                TR[2].innerHTML='<input name="Star_3" value="00" class="inpText">';
+                TR[3].innerHTML='A<sub>o</sub>';
+                TR[4].innerHTML='<input type="number" name="Ao_3" value="0" class="inpXD" step="any">';
+                TR[5].innerHTML='n';
+                TR[6].innerHTML='<input type="number" name="n_3D" value="0" class="inpD" style="display: none;"><input type="number" name="n_3M" value="15" class="inpD" step="any">';
+            }else if (this.value==='OC'){
+                TR[2].innerHTML='<input name="Star_3" value="00" class="inpText"><input type="number" name="star2Num" value="0" step="1" class="inpM">';
+                TR[3].innerHTML='ΔТ';
+                TR[4].innerHTML='<input type="time" name="dT_3" value="00:00:00" step="1">';
+                TR[5].innerHTML='ОС<sub>3</sub>';
+                TR[6].innerHTML='<input type="number" name="OS3D" value="20" class="inpD"><input type="number" name="OS3M" value="10" class="inpD" step="any">';
+            }else{
+                TR[2].innerHTML='';
+                TR[3].innerHTML='';
+                TR[4].innerHTML='';
+                TR[5].innerHTML='';
+                TR[6].innerHTML='';
+            }
+            var type = document.getElementsByName('type')[0];
+            var J = JSON.parse(type.value);
+            J[0]=this.value;
+            type.value = JSON.stringify(J);
+        };
+
+        document.getElementsByName('type4')[0].oninput = function (){
+
+            var TR = this.parentNode.parentNode.getElementsByTagName('td');
+//            TR.style.background='red';
+            if (this.value === 'A'){
+
+                TR[2].innerHTML='<input name="Star_4" value="00" class="inpText">';
+                TR[3].innerHTML='A<sub>o</sub>';
+                TR[4].innerHTML='<input type="number" name="Ao_4" value="0" class="inpXD" step="any">';
+                TR[5].innerHTML='n';
+                TR[6].innerHTML='<input type="number" name="n_4D" value="0" class="inpD" style="display: none;"><input type="number" name="n_4M" value="15" class="inpD" step="any">';
+            }else if (this.value==='OC'){
+                TR[2].innerHTML='<input name="Star_4" value="00" class="inpText">';
+                TR[3].innerHTML='ΔТ';
+                TR[4].innerHTML='<input type="time" name="dT_4" value="00:00:00" step="1">';
+                TR[5].innerHTML='ОС<sub>3</sub>';
+                TR[6].innerHTML='<input type="number" name="OS4D" value="20" class="inpD"><input type="number" name="OS3M" value="10" class="inpD" step="any">';
+            }else{
+                TR[2].innerHTML='';
+                TR[3].innerHTML='';
+                TR[4].innerHTML='';
+                TR[5].innerHTML='';
+                TR[6].innerHTML='';
+            }
+            var type = document.getElementsByName('type')[0];
+            var J = JSON.parse(type.value);
+            J[1]=this.value;
+            type.value = JSON.stringify(J);
+        }
+        //
+        //        document.getElementsByName('Star_1')[0].onblur = function (){
+
+        var arrPHI = [
+            74,
+            72,
+            70,
+            68,
+            66,
+            64,
+            62,
+            60,
+            58,
+            56,
+            54,
+            52,
+            50,
+            45,
+            40,
+            30,
+            20,
+            10,
+            0,
+            -10,
+            -20,
+            -30,
+            -40,
+            -45,
+            -50,
+            -52,
+            -54,
+            -56,
+            -58,
+            -60
+        ];
+
+
+        document.getElementsByName('latD')[0].onblur = function () {
+            var lat = document.getElementsByName('latD')[0].value;
+            if (document.getElementsByName('latN')[0].value==='S'){
+                lat = -lat;
+            }
+            getLat(lat);
+        };
+
+        document.getElementsByName('latM')[0].onblur = function () {
+            var lat = document.getElementsByName('latD')[0].value;
+            if (document.getElementsByName('latN')[0].value==='S'){
+                lat = -lat;
+            }
+            getLat(lat);
+        };
+
+        document.getElementsByName('latN')[0].onblur = function () {
+            var lat = document.getElementsByName('latD')[0].value;
+            if (document.getElementsByName('latN')[0].value==='S'){
+                lat = -lat;
+            }
+            getLat(lat);
+        };
+        function getLat(lat) {
+
+            var phi1;
+            var phi2;
+            for(var f=0;f<arrPHI.length;f++){
+                if(lat>arrPHI[f]){
+                    phi1 = arrPHI[f];
+                    if(lat>0) {
+                        phi1 = arrPHI[f];
+                        phi2 = arrPHI[f - 1];
+                    }else{
+                        phi1 = arrPHI[f -1];
+                        phi2 = arrPHI[f];
+                    }
+                    break;
+                }
+
+            }
+
+
+//            alert(phi1+' '+phi2);
+            if(lat>0){
+                var latN = 'N';
+            }else{
+                var latN = 'S';
+            }
+            document.getElementsByClassName('tvz1')[0].innerHTML=Math.abs(phi1)+' '+latN;
+            document.getElementsByClassName('tvz2')[0].innerHTML=Math.abs(phi2)+' '+latN;
+        }
+
+    </script>
+
+
+</div>
+<div class="dashboard"></div>
+
+</body>
+<script>
+    function openDashboard(text) {
+        var dashB = document.getElementsByClassName('dashboard')[0];
+        dashB.innerHTML=text;
+        dashB.style.display='block';
+
+    }
+
+
+    function openMainBlock(number) {
+        var mainBlock = document.getElementsByClassName('mainBlock')[number];
+        var spisok = document.getElementsByClassName('spisok')[number];
+        spisok.style.opacity = 1;
+        mainBlock.style.boxShadow='0 0 15px -1px #323232';
+    }
+    function closeMainBlock(number) {
+        var mainBlock = document.getElementsByClassName('mainBlock')[number];
+        var spisok = document.getElementsByClassName('spisok')[number];
+        spisok.style.opacity = 0;
+        mainBlock.style.boxShadow='0 0 10px -1px #323232';
+    }
+</script>
+</html>
+
+<div class="menu" style="display: none">
+    <div class="m_item" onclick="location='course?i=1'">
+        Время явлений Солнца
+    </div>
+</div><div class="header">
+    <a href="/main">AriesPoint.ru</a>
+</div>
